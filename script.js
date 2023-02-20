@@ -1,5 +1,6 @@
 const box = document.getElementById("tabuleiro");
 const h1 = document.querySelector("h1");
+const backgroundMusic = new Audio("assets/sounds/background.mp3");
 
 const pSize = 19, dimension = 26, velocidade = 1;
 
@@ -15,6 +16,7 @@ function start() {
     snakeY += velocityY;
 
     validarMovimentos();
+    backgroundMusic.play();
 
     // Cria a cobra
     ctx.fillStyle = "blue";
@@ -22,9 +24,7 @@ function start() {
         ctx.fillRect(trail[i].x * pSize, trail[i].y * pSize, pSize-1, pSize-1);
 
         if (cauda > 1 && trail[i].x === snakeX && trail[i].y === snakeY) {
-            new Audio("assets/sounds/gameover.wav").play();
-            velocityX = velocityY = 0;
-            cauda = 1;
+            gameOver();
         }
     }
     trail.push({x:snakeX, y:snakeY});
@@ -37,6 +37,12 @@ function start() {
         appleX = Math.floor(Math.random() * dimension);
         appleY = Math.floor(Math.random() * dimension);
     }
+}
+
+function gameOver() {
+    new Audio("assets/sounds/gameover.wav").play();
+    velocityX = velocityY = 0;
+    cauda = 1;
 }
 
 function validarMovimentos() {
