@@ -4,13 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #808090;
+}
+
 #tabuleiro {
     display: block;
     margin: auto;
 }
 
 h1 {
-    color: blue;
+    color: #0000FF;
     text-align: center;
     text-decoration: underline;
 }
