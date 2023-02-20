@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tabuleiro {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+}
