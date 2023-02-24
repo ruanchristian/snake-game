@@ -18,3 +18,9 @@ h1 {
     text-align: center;
     text-decoration: underline;
 }
+
+@media(max-width: 600px) {
+    h2 {
+        padding-top: 3rem;
+    }
+}

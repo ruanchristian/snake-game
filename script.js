@@ -9,6 +9,7 @@ let snakeX = 10, snakeY = 15, cauda = 1;
 let velocityX = 0, velocityY = 0;
 let appleX = 15, appleY = 5;
 let trail = [];
+let score = document.getElementById("score");
 
 function start() {
     draw();
@@ -34,6 +35,7 @@ function start() {
 
     if (appleX === snakeX && appleY === snakeY) {
         ++cauda;
+        score.innerText = cauda-1;
         appleX = Math.floor(Math.random() * dimension);
         appleY = Math.floor(Math.random() * dimension);
     }
@@ -43,6 +45,7 @@ function gameOver() {
     new Audio("assets/sounds/gameover.wav").play();
     velocityX = velocityY = 0;
     cauda = 1;
+    score.innerText = 0;
 }
 
 function validarMovimentos() {
@@ -96,7 +99,7 @@ function draw() {
 
 window.onload = () => {
     document.addEventListener("keydown", update);
-    setInterval(start, 90);
+    setInterval(start, 110);
 
     // Mudar cor do texto central a cada 450 millisegundos
     let aux = 0;
